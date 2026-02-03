@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="hud_size">200dp</dimen>
+    <dimen name="indicator_size">60dp</dimen>
+    <dimen name="waveform_width">160dp</dimen>
+    <dimen name="waveform_height">20dp</dimen>
+    <dimen name="waveform_bottom_margin">30dp</dimen>
+    <dimen name="transcription_top_margin">30dp</dimen>
+</resources>

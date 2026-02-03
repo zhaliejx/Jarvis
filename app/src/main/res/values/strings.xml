@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Jarvis Assistant</string>
+    <string name="accessibility_service_description">Jarvis Accessibility Service for controlling apps and reading screen content</string>
+</resources>

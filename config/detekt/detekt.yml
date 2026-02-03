@@ -1,0 +1,44 @@
+config:
+  validation: true
+  # when writing own rules you might want to disable this flag
+  # to allow rules to be written in the same module
+  suppress-errors: false
+  # whether to let detekt fail when finding code smells
+  fail-fast: false
+
+# you can manually disable rules or rule sets here
+rules:
+  # style:
+  #   active: true
+  #   CannotBeEmpty:
+  #     active: true
+  #     severity: error
+  complexity:
+    active: true
+    TooManyFunctions:
+      thresholdInFiles: 20
+      thresholdInClasses: 15
+      thresholdInInterfaces: 15
+      thresholdInObjects: 15
+      thresholdInEnums: 15
+      ignoreDeprecated: false
+      ignorePrivate: false
+      ignoreOverridden: false
+  exceptions:
+    active: true
+    TooGenericExceptionCaught:
+      active: false
+    NotImplementedDeclaration:
+      active: false
+  style:
+    active: true
+    MagicNumber:
+      active: false
+    MaxLineLength:
+      maxLineLength: 120
+    UnusedPrivateMember:
+      active: false
+    WildcardImport:
+      active: false
+    ForbiddenComment:
+      active: false
