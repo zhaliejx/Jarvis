@@ -2,41 +2,103 @@
 
 This is a personal "Jarvis" application for Android that functions as a system-level assistant, capable of listening and responding even when the phone is locked, the screen is off, or you are using other apps.
 
+## Project Structure
+
+```
+jarvis-assistant/
+├── app/
+│   ├── src/main/
+│   │   ├── java/com/jarvis/assistant/
+│   │   │   ├── MainActivity.kt
+│   │   │   ├── JarvisApplication.kt
+│   │   │   ├── data/
+│   │   │   │   ├── JarvisDatabase.kt
+│   │   │   │   └── UserContext.kt
+│   │   │   ├── managers/
+│   │   │   │   └── BrainManager.kt
+│   │   │   ├── services/
+│   │   │   │   ├── AlwaysListeningService.kt
+│   │   │   │   └── JarvisAccessibilityService.kt
+│   │   │   ├── utils/
+│   │   │   │   └── OverlayManager.kt
+│   │   │   └── receivers/
+│   │   │       └── BootCompletedReceiver.kt
+│   │   ├── res/
+│   │   │   ├── layout/
+│   │   │   │   └── activity_main.xml
+│   │   │   ├── values/
+│   │   │   │   ├── strings.xml
+│   │   │   │   ├── colors.xml
+│   │   │   │   ├── styles.xml
+│   │   │   │   └── dimens.xml
+│   │   │   ├── drawable/
+│   │   │   │   └── ic_mic_on.xml
+│   │   │   ├── mipmap-anydpi-v26/
+│   │   │   │   └── ic_launcher.xml
+│   │   │   └── xml/
+│   │   │       └── accessibility_service_config.xml
+│   │   └── AndroidManifest.xml
+├── .github/workflows/
+│   ├── android.yml
+│   ├── release.yml
+│   ├── instrumented-tests.yml
+│   └── code-quality.yml
+├── gradle/
+│   └── wrapper/
+├── build.gradle
+├── settings.gradle
+└── gradlew
+```
+
+## GitHub Actions Workflows
+
+The project includes several GitHub Actions workflows:
+
+1. **Build and Test** (`android.yml`) - Builds and tests the application
+2. **Release** (`release.yml`) - Creates releases when tags are pushed
+3. **Instrumented Tests** (`instrumented-tests.yml`) - Runs tests on multiple API levels
+4. **Code Quality** (`code-quality.yml`) - Performs code quality checks
+
+## Setting Up the Project
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd jarvis-assistant
+   ```
+
+2. Make the gradlew script executable:
+   ```bash
+   chmod +x gradlew
+   ```
+
+3. Build the project:
+   ```bash
+   ./gradlew build
+   ```
+
+## Building the APK
+
+To build the debug APK:
+```bash
+./gradlew assembleDebug
+```
+
+To build the release APK:
+```bash
+./gradlew assembleRelease
+```
+
+The APKs will be located in `app/build/outputs/apk/`.
+
 ## Features
 
-### 1. Background Wake Word Detection
-- Implements a Foreground Service with persistent notification
-- Uses streaming audio recorder to feed data into a wake word engine
-- Designed for integration with Picovoice Porcupine for offline wake word detection
-- Automatically starts on device boot
-
-### 2. Accessibility Service (The "Iron Man" Control)
-- Reads text from the currently active screen
-- Performs global actions (Back, Home, Recents)
-- Clicks specific buttons in other apps based on text content
-- Enables control of other applications through voice commands
-
-### 3. Overlay Interface (HUD)
-- Draws over other apps with SYSTEM_ALERT_WINDOW permission
-- Displays a circular, futuristic HUD when wake word is triggered
-- Shows audio waveform and text transcription
-- Automatically dismisses after AI response
-
-### 4. AI Integration
-- Connects to Pollinations AI API for Mistral Large model
-- Implements local Room database for user preferences and context
-- Injects user context into prompts (location, activity, preferences)
-
-## Architecture
-
-The application follows MVVM pattern with heavy emphasis on Foreground Services:
-
-- `AlwaysListeningService.kt` - Handles wake word detection in background
-- `JarvisAccessibilityService.kt` - Controls other apps and reads screen content
-- `OverlayManager.kt` - Manages the HUD interface
-- `BrainManager.kt` - Handles AI API calls and command processing
-- `MainActivity.kt` - Requests permissions and starts services
-- Room database - Stores user context and preferences
+- **System-Level Assistant**: Works when screen is off, locked, or other apps are in use
+- **Wake Word Detection**: Background listening with foreground service
+- **App Control**: Accessibility service to control other apps
+- **HUD Interface**: Overlay display with audio visualization
+- **AI Integration**: API connectivity for intelligent responses
+- **Local Storage**: Room database for user context and preferences
 
 ## Permissions Required
 
@@ -47,21 +109,18 @@ The application follows MVVM pattern with heavy emphasis on Foreground Services:
 - BIND_ACCESSIBILITY_SERVICE - For accessibility features
 - RECEIVE_BOOT_COMPLETED - To auto-start on boot
 
-## Setup Instructions
+## Post-Installation Setup
 
-1. Clone the repository
-2. Add Picovoice Porcupine SDK dependency for wake word detection
-3. Configure your Pollinations API endpoint
-4. Request all required permissions on first launch
-5. Enable the accessibility service in device settings
+After installing the app, you need to enable special permissions:
 
-## Important Notes
+1. **Accessibility Service**: Go to Settings → Accessibility → Find "Jarvis Accessibility Service" and enable it
+2. **Overlay Permission**: Go to Settings → Apps → Special Access → Draw over other apps → Find "Jarvis Assistant" and enable it
+3. **Microphone Permission**: Go to Settings → Apps → Jarvis Assistant → Permissions → Enable Microphone permission
 
-- This is designed for personal use
-- Battery optimization should be disabled for the app
-- The accessibility service must be enabled manually in Settings > Accessibility
-- Wake word detection requires the Picovoice Porcupine SDK (not included due to licensing)
+## Contributing
 
-## Testing
-
-The application includes simulation for wake word detection and command processing. In a real implementation, you would integrate with Picovoice Porcupine for actual wake word detection.
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
