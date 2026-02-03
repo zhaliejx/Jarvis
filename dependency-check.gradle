@@ -1,0 +1,11 @@
+plugins {
+    id 'org.owasp.dependencycheck' version '8.4.0'
+}
+
+dependencyCheck {
+    failOnError = false
+    suppressionFile = 'config/quality/dependency-suppression.xml'
+    analyzers {
+        retirejs.enabled = false
+    }
+}

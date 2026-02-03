@@ -2,9 +2,8 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id 'org.jlleitschuh.gradle.ktlint' version '11.5.1'
-    id 'io.gitlab.arturbosch.detekt' version '1.23.0'
 }
+apply from: '../dependency-check.gradle'
 
 android {
     namespace 'com.jarvis.assistant'
@@ -32,21 +31,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
-    }
-}
-
-detekt {
-    config = files("../config/detekt/detekt.yml")
-    baseline = file("detekt-baseline.xml")
-    buildUponDefaultConfig = true
-}
-
-ktlint {
-    android = true
-    outputToConsole = true
-    reporters {
-        reporter "plain"
-        reporter "checkstyle"
     }
 }
 

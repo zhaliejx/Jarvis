@@ -45,13 +45,13 @@ jobs:
       run: chmod +x ./gradlew
 
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./gradlew build --stacktrace
 
     - name: Run unit tests
-      run: ./gradlew testDebugUnitTest
+      run: ./gradlew testDebugUnitTest --stacktrace
 
     - name: Build Debug APK
-      run: ./gradlew assembleDebug
+      run: ./gradlew assembleDebug --stacktrace
 
     - name: Upload Debug APK
       uses: actions/upload-artifact@v4
@@ -60,7 +60,7 @@ jobs:
         path: app/build/outputs/apk/debug/app-debug.apk
 
     - name: Build Release APK
-      run: ./gradlew assembleRelease
+      run: ./gradlew assembleRelease --stacktrace
       env:
         SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
         SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}

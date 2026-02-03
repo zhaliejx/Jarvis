@@ -52,3 +52,11 @@ For the release workflow to work, you need to configure the following secrets in
 - Check the "Actions" tab in your GitHub repository
 - All workflows will show their status and logs
 - Artifacts (APKs, reports) can be downloaded from completed workflows
+
+## Troubleshooting
+
+If you encounter build errors:
+1. Check the logs in the Actions tab for detailed error messages
+2. Ensure all dependencies are properly declared in build.gradle files
+3. Verify that the Android SDK and build tools versions are compatible
+4. Add `--stacktrace` flag to Gradle commands for more detailed error information
