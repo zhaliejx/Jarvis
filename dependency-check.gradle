@@ -1,6 +1,4 @@
-plugins {
-    id 'org.owasp.dependencycheck' version '8.4.0'
-}
+apply plugin: 'org.owasp.dependencycheck'
 
 dependencyCheck {
     failOnError = false

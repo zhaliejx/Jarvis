@@ -15,7 +15,7 @@ import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.jarvis.assistant.MainActivity
-import com.jarvis.assistant.data.JarvisDatabase
+import com.jarvis.assistant.data.JarvisDataStore
 import com.jarvis.assistant.managers.BrainManager
 import com.jarvis.assistant.utils.OverlayManager
 import kotlinx.coroutines.CoroutineScope
@@ -52,16 +52,16 @@ class AlwaysListeningService : Service() {
         // Initialize components
         overlayManager = OverlayManager(this)
 
-        // Initialize database and brain manager
-        val database = JarvisDatabase.getInstance(this)
-        brainManager = BrainManager(database.userPreferencesDao())
+        // Initialize datastore and brain manager
+        val dataStore = JarvisDataStore.getInstance(this)
+        brainManager = BrainManager(dataStore)
 
         createNotificationChannel()
         startAudioRecording()
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        startForeground(NOTIFICATION_ID, createNotification())
+        startForeground(NOTIFICATION_ID, createNotification().build())
         return START_STICKY // Restart service if killed
     }
 

@@ -1,8 +1,8 @@
 package com.jarvis.assistant.managers
 
 import android.util.Log
+import com.jarvis.assistant.data.JarvisDataStore
 import com.jarvis.assistant.data.UserContext
-import com.jarvis.assistant.data.UserPreferencesDao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -13,7 +13,7 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 
 class BrainManager(
-    private val userPreferencesDao: UserPreferencesDao
+    private val dataStore: JarvisDataStore
 ) {
 
     companion object {
@@ -25,7 +25,7 @@ class BrainManager(
     private val httpClient = OkHttpClient()
 
     suspend fun processQuery(query: String): String {
-        // Get user context from database
+        // Get user context from datastore
         val userContext = getUserContext()
         
         // Construct the prompt with user context
@@ -100,15 +100,15 @@ class BrainManager(
 
     private suspend fun getUserContext(): UserContext {
         return try {
-            // Get user preferences from database
-            val preferences = userPreferencesDao.getAllPreferences()
+            // Get user preferences from datastore
+            val preferences = dataStore.getAllPreferences()
             
             // Build context object
             UserContext(
-                location = preferences.firstOrNull { it.key == "location" }?.value ?: "unknown",
+                location = preferences["location"] ?: "unknown",
                 currentTime = System.currentTimeMillis().toString(),
-                currentActivity = preferences.firstOrNull { it.key == "current_activity" }?.value ?: "unknown",
-                preferences = preferences.joinToString(", ") { "${it.key}:${it.value}" }
+                currentActivity = preferences["current_activity"] ?: "unknown",
+                preferences = preferences.entries.joinToString(", ") { "${it.key}:${it.value}" }
             )
         } catch (e: Exception) {
             Log.e(TAG, "Error getting user context", e)

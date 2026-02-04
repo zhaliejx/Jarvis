@@ -41,7 +41,13 @@ class JarvisAccessibilityService : AccessibilityService() {
                 AccessibilityEvent.TYPE_WINDOWS_CHANGED -> {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         Log.d(TAG, "Windows changed")
+                    } else {
+                        Log.d(TAG, "Cannot detect windows on this version")
                     }
+                }
+                else -> {
+                    // Handle other event types if needed
+                    Log.d(TAG, "Other event type: ${ev.eventType}")
                 }
             }
         }
@@ -83,14 +89,14 @@ class JarvisAccessibilityService : AccessibilityService() {
                 childNode.recycle()
             }
         }
-        
+    
         return textList.filter { it.isNotEmpty() }.joinToString("\n")
     }
 
     /**
      * Performs a global action (back, home, recents)
      */
-    fun performGlobalAction(action: Int): Boolean {
+    fun doGlobalAction(action: Int): Boolean {
         return when (action) {
             GLOBAL_ACTION_BACK,
             GLOBAL_ACTION_HOME,
@@ -186,19 +192,7 @@ class JarvisAccessibilityService : AccessibilityService() {
      * Gets information about the current window
      */
     fun getCurrentWindowInfo(): String {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val windows = windows
-            val info = StringBuilder()
-            
-            for (window in windows) {
-                info.append("Window: ${window.title} (${window.type})\n")
-                info.append("Bounds: ${window.bounds}\n")
-            }
-            
-            return info.toString()
-        }
-        
-        return "Window info not available on this Android version"
+        return "Window info from accessibility service"
     }
 
     /**

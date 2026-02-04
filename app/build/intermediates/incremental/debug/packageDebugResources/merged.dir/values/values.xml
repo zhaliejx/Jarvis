@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <dimen name="hud_size">200dp</dimen>
+    <dimen name="indicator_size">60dp</dimen>
+    <dimen name="transcription_top_margin">30dp</dimen>
+    <dimen name="waveform_bottom_margin">30dp</dimen>
+    <dimen name="waveform_height">20dp</dimen>
+    <dimen name="waveform_width">160dp</dimen>
+    <string name="accessibility_service_description">Jarvis Accessibility Service for controlling apps and reading screen content</string>
+    <string name="app_name">Jarvis Assistant</string>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+</resources>

@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "com.jarvis.assistant.app-release-30:/xml_accessibility_service_config.xml.flat",
+        "source": "com.jarvis.assistant.app-main-31:/xml/accessibility_service_config.xml"
+    },
+    {
+        "merged": "com.jarvis.assistant.app-release-30:/layout_activity_main.xml.flat",
+        "source": "com.jarvis.assistant.app-main-31:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.jarvis.assistant.app-release-30:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.jarvis.assistant.app-main-31:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.jarvis.assistant.app-release-30:/drawable_ic_mic_on.xml.flat",
+        "source": "com.jarvis.assistant.app-main-31:/drawable/ic_mic_on.xml"
+    }
+]

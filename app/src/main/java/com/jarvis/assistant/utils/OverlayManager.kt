@@ -165,12 +165,11 @@ class OverlayManager(private val context: Context) {
 
         return container
     }
-
     private fun createHudBackground(): GradientDrawable {
         return GradientDrawable().apply {
             shape = GradientDrawable.OVAL
             setColor(Color.parseColor("#80000000")) // Semi-transparent black
-           .setStroke(4, Color.WHITE) // White border
+            setStroke(4, Color.WHITE) // White border
         }
     }
 

@@ -1,0 +1,25 @@
+<lint-module
+    format="1"
+    dir="/workspaces/Jarvis/app"
+    name=":app"
+    type="APP"
+    maven="Jarvis Assistant:app:unspecified"
+    agpVersion="8.7.0"
+    buildFolder="build"
+    bootClassPath="/home/codespace/Android/sdk/platforms/android-34/android.jar:/home/codespace/Android/sdk/build-tools/34.0.0/core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-34"
+    neverShrinking="true">
+  <lintOptions
+      disable="MissingPermission"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true">
+    <severities>
+      <severity
+        id="MissingPermission"
+        severity="IGNORE" />
+    </severities>
+  </lintOptions>
+  <variant name="debug"/>
+</lint-module>

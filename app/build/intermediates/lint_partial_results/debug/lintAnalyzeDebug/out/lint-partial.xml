@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.7.0" type="partial_results">
+    <map id="UnsafeImplicitIntentLaunch">
+            <map id="actionsSent">
+                    <map id="android.settings.action.MANAGE_OVERLAY_PERMISSION (used to start an activity)">
+                        <location id="0"
+                            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/jarvis/assistant/MainActivity.kt"
+                            line="55"
+                            column="34"
+                            startOffset="1799"
+                            endLine="58"
+                            endColumn="22"
+                            endOffset="1953"/>
+                    </map>
+            </map>
+    </map>
+    <map id="UnsafeIntentLaunch">
+            <map id="unprotected">
+                <entry
+                    name="com.jarvis.assistant.MainActivity"
+                    boolean="true"/>
+                <entry
+                    name="com.jarvis.assistant.receivers.BootCompletedReceiver"
+                    boolean="true"/>
+            </map>
+    </map>
+    <map id="UnusedResources">
+        <entry
+            name="model"
+            string="attr[colorControlNormal(R)],color[colorPrimary(U),colorAccent(U),colorPrimaryDark(U)],dimen[hud_size(U),indicator_size(U),waveform_width(U),waveform_height(U),waveform_bottom_margin(U),transcription_top_margin(U)],drawable[ic_mic_on(U)],id[btnStartService(U),btnRequestPermissions(U),tvStatus(U)],layout[activity_main(U)],mipmap[ic_launcher(U)],string[app_name(U),accessibility_service_description(U)],style[AppTheme(U),Theme_AppCompat_Light_DarkActionBar(R)],xml[accessibility_service_config(U)];a^0,f^1^2,12^13^1^3^2,14^11;;;"/>
+    </map>
+
+</incidents>

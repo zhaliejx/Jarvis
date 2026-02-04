@@ -1,0 +1,176 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.jarvis.assistant"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <!-- Audio recording permissions -->
+12    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+12-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:6:5-71
+12-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:6:22-68
+13
+14    <!-- Foreground service permissions -->
+15    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+15-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:9:5-77
+15-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:9:22-74
+16    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+16-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:10:5-88
+16-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:10:22-85
+17
+18    <!-- Draw over other apps permission -->
+19    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+19-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:13:5-78
+19-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:13:22-75
+20
+21    <!-- Boot completed receiver -->
+22    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+22-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:16:5-81
+22-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:16:22-78
+23
+24    <!-- Internet access for AI API -->
+25    <uses-permission android:name="android.permission.INTERNET" />
+25-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:19:5-67
+25-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:19:22-64
+26
+27    <!-- Access to accessibility service -->
+28    <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />
+28-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:22:5-85
+28-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:22:22-82
+29
+30    <permission
+30-->[androidx.core:core:1.10.1] /home/codespace/.gradle/caches/8.12/transforms/4819afa784fb2cc73bba9a125d9f4bb8/transformed/core-1.10.1/AndroidManifest.xml:22:5-24:47
+31        android:name="com.jarvis.assistant.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+31-->[androidx.core:core:1.10.1] /home/codespace/.gradle/caches/8.12/transforms/4819afa784fb2cc73bba9a125d9f4bb8/transformed/core-1.10.1/AndroidManifest.xml:23:9-81
+32        android:protectionLevel="signature" />
+32-->[androidx.core:core:1.10.1] /home/codespace/.gradle/caches/8.12/transforms/4819afa784fb2cc73bba9a125d9f4bb8/transformed/core-1.10.1/AndroidManifest.xml:24:9-44
+33
+34    <uses-permission android:name="com.jarvis.assistant.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+34-->[androidx.core:core:1.10.1] /home/codespace/.gradle/caches/8.12/transforms/4819afa784fb2cc73bba9a125d9f4bb8/transformed/core-1.10.1/AndroidManifest.xml:26:5-97
+34-->[androidx.core:core:1.10.1] /home/codespace/.gradle/caches/8.12/transforms/4819afa784fb2cc73bba9a125d9f4bb8/transformed/core-1.10.1/AndroidManifest.xml:26:22-94
+35
+36    <application
+36-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:24:5-74:19
+37        android:name="com.jarvis.assistant.JarvisApplication"
+37-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:25:9-42
+38        android:allowBackup="true"
+38-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:26:9-35
+39        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+39-->[androidx.core:core:1.10.1] /home/codespace/.gradle/caches/8.12/transforms/4819afa784fb2cc73bba9a125d9f4bb8/transformed/core-1.10.1/AndroidManifest.xml:28:18-86
+40        android:extractNativeLibs="false"
+41        android:icon="@mipmap/ic_launcher"
+41-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:27:9-43
+42        android:label="@string/app_name"
+42-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:28:9-41
+43        android:supportsRtl="true"
+43-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:29:9-35
+44        android:theme="@style/AppTheme" >
+44-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:30:9-40
+45
+46        <!-- Main Activity -->
+47        <activity
+47-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:33:9-40:20
+48            android:name="com.jarvis.assistant.MainActivity"
+48-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:34:13-41
+49            android:exported="true" >
+49-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:35:13-36
+50            <intent-filter>
+50-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:36:13-39:29
+51                <action android:name="android.intent.action.MAIN" />
+51-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:37:17-69
+51-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:37:25-66
+52
+53                <category android:name="android.intent.category.LAUNCHER" />
+53-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:38:17-77
+53-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:38:27-74
+54            </intent-filter>
+55        </activity>
+56
+57        <!-- Foreground Service for wake word detection -->
+58        <service
+58-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:43:9-47:58
+59            android:name="com.jarvis.assistant.services.AlwaysListeningService"
+59-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:44:13-60
+60            android:enabled="true"
+60-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:45:13-35
+61            android:exported="false"
+61-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:46:13-37
+62            android:foregroundServiceType="microphone" />
+62-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:47:13-55
+63
+64        <!-- Accessibility Service for app control -->
+65        <service
+65-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:50:9-60:19
+66            android:name="com.jarvis.assistant.services.JarvisAccessibilityService"
+66-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:51:13-64
+67            android:exported="true"
+67-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:53:13-36
+68            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+68-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:52:13-79
+69            <intent-filter>
+69-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:54:13-56:29
+70                <action android:name="android.accessibilityservice.AccessibilityService" />
+70-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:55:17-92
+70-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:55:25-89
+71            </intent-filter>
+72
+73            <meta-data
+73-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:57:13-59:72
+74                android:name="android.accessibilityservice"
+74-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:58:17-60
+75                android:resource="@xml/accessibility_service_config" />
+75-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:59:17-69
+76        </service>
+77
+78        <!-- Broadcast Receiver for boot completed -->
+79        <receiver
+79-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:63:9-72:20
+80            android:name="com.jarvis.assistant.receivers.BootCompletedReceiver"
+80-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:64:13-60
+81            android:enabled="true"
+81-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:65:13-35
+82            android:exported="true" >
+82-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:66:13-36
+83            <intent-filter android:priority="1000" >
+83-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:67:13-71:29
+83-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:67:28-51
+84                <action android:name="android.intent.action.BOOT_COMPLETED" />
+84-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:68:17-79
+84-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:68:25-76
+85                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+85-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:69:17-82
+85-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:69:25-79
+86
+87                <category android:name="android.intent.category.DEFAULT" />
+87-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:70:17-76
+87-->/workspaces/Jarvis/app/src/main/AndroidManifest.xml:70:27-73
+88            </intent-filter>
+89        </receiver>
+90
+91        <provider
+91-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/8.12/transforms/e458e48aecf0bbcc3c1fd66a47c060c8/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+92            android:name="androidx.startup.InitializationProvider"
+92-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/8.12/transforms/e458e48aecf0bbcc3c1fd66a47c060c8/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+93            android:authorities="com.jarvis.assistant.androidx-startup"
+93-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/8.12/transforms/e458e48aecf0bbcc3c1fd66a47c060c8/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+94            android:exported="false" >
+94-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/8.12/transforms/e458e48aecf0bbcc3c1fd66a47c060c8/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+95            <meta-data
+95-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/8.12/transforms/e458e48aecf0bbcc3c1fd66a47c060c8/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+96                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+96-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/8.12/transforms/e458e48aecf0bbcc3c1fd66a47c060c8/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+97                android:value="androidx.startup" />
+97-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/8.12/transforms/e458e48aecf0bbcc3c1fd66a47c060c8/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+98            <meta-data
+98-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/codespace/.gradle/caches/8.12/transforms/ad6e9790f2b4d4f6bf9c1e1aa137818a/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+99                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+99-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/codespace/.gradle/caches/8.12/transforms/ad6e9790f2b4d4f6bf9c1e1aa137818a/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+100                android:value="androidx.startup" />
+100-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/codespace/.gradle/caches/8.12/transforms/ad6e9790f2b4d4f6bf9c1e1aa137818a/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+101        </provider>
+102    </application>
+103
+104</manifest>
