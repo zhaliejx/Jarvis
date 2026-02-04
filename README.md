@@ -67,29 +67,20 @@ The project includes several GitHub Actions workflows:
    cd jarvis-assistant
    ```
 
-2. Make the gradlew script executable:
-   ```bash
-   chmod +x gradlew
-   ```
-
-3. Build the project:
-   ```bash
-   ./gradlew build
-   ```
+2. The project is ready for GitHub Actions. The workflows will automatically:
+   - Set up the Android SDK
+   - Build the application
+   - Run tests
+   - Create releases when tags are pushed
 
 ## Building the APK
 
-To build the debug APK:
+The APKs are automatically built by GitHub Actions and available as artifacts.
+
+For local development:
 ```bash
 ./gradlew assembleDebug
 ```
-
-To build the release APK:
-```bash
-./gradlew assembleRelease
-```
-
-The APKs will be located in `app/build/outputs/apk/`.
 
 ## Features
 
@@ -117,10 +108,36 @@ After installing the app, you need to enable special permissions:
 2. **Overlay Permission**: Go to Settings → Apps → Special Access → Draw over other apps → Find "Jarvis Assistant" and enable it
 3. **Microphone Permission**: Go to Settings → Apps → Jarvis Assistant → Permissions → Enable Microphone permission
 
-## Contributing
+## GitHub Actions Configuration
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+The project is configured with the following GitHub Actions:
+
+### Build Workflow (`.github/workflows/android.yml`)
+- Builds the Android application on every push to main/develop branches
+- Runs unit tests
+- Creates debug and release APKs
+- Uploads artifacts for download
+
+### Release Workflow (`.github/workflows/release.yml`)
+- Creates a GitHub release when a tag is pushed (e.g., `v1.0.0`)
+- Builds and signs the release APK
+- Uploads the APK to the GitHub release
+
+### Instrumented Tests (`.github/workflows/instrumented-tests.yml`)
+- Runs instrumented tests on multiple Android API levels
+- Executes weekly to ensure compatibility
+
+### Code Quality (`.github/workflows/code-quality.yml`)
+- Runs code quality checks on every push and PR
+- Includes ktlint for Kotlin code formatting
+- Includes detekt for static code analysis
+- Includes dependency vulnerability scanning
+
+## Secrets Required for Releases
+
+For the release workflow to work, configure these secrets in your GitHub repository:
+
+- `SIGNING_KEY`: Base64-encoded keystore file
+- `SIGNING_PASSWORD`: Keystore password
+- `KEY_ALIAS`: Key alias
+- `KEY_PASSWORD`: Key password
