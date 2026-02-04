@@ -60,19 +60,25 @@ jobs:
         name: debug-apk
         path: app/build/outputs/apk/debug/app-debug.apk
 
+    - name: Decode Signing Key
+      run: |
+        echo "${{ secrets.SIGNING_KEY }}" | base64 -d > app/release.keystore
+      if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+
     - name: Build Release APK
       run: ./gradlew assembleRelease --stacktrace
       env:
-        SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
         SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
         KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
         KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
 
     - name: Upload Release APK
       uses: actions/upload-artifact@v4
       with:
         name: release-apk
         path: app/build/outputs/apk/release/app-release.apk
+      if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
 
   lint:
     runs-on: ubuntu-latest
